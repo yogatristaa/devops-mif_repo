@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  web:
+    image: yogatrista/devops-mif_images:testing
+    ports:
+      - "80:80"
