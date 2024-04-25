@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-mif
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: devops-mif
+  template:
+    metadata:
+      labels:
+        app: devops-mif
+    spec:
+      containers:
+        - name: devops-mif
+          image: yogatrista/devops-mif_images:testing
+          ports:
+            - containerPort: 80
