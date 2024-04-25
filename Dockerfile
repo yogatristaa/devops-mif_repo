@@ -1,15 +1,11 @@
-FROM alpine:latest
+FROM php:8.2-alpine
 
-RUN apk --no-cache add nginx php8.2 php8.2-fpm
+RUN apk add --no-cache nginx
 
-# Copy nginx and PHP configuration files
-# COPY nginx.conf /etc/nginx/nginx.conf
-# COPY php-fpm.conf /etc/php8/php-fpm.conf
-
-WORKDIR /var/www/html
-
-COPY index.php .
+COPY index.php /var/www/html/index.php
 
 EXPOSE 80
 
-CMD ["php-fpm", "-F"]
+COPY nginx.conf /etc/nginx/nginx.conf
+
+CMD ["nginx", "-g", "daemon off;"]
