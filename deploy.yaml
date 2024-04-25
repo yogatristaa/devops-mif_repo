@@ -1,0 +1,9 @@
+---
+- name: DevOps Test
+  hosts: target_server
+  tasks:
+    - name: Clone repository
+      git:
+        repo: https://github.com/yogatristaa/devops-mif_repo.git
+        dest: /devops-mif_repo
+        update: yes
